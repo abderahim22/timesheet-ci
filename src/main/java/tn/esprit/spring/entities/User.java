@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-@Entity
+
 @Table(name = "T_USER")
 public class User implements Serializable {
 
@@ -28,38 +28,35 @@ public class User implements Serializable {
 	
 	private String lastName;
 	
+	
+	
 	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;
 	//test
 	
-	@Enumerated(EnumType.STRING)
-	Role role; 
-	
 	public User() {	}
 
-	public User(String firstName, String lastName, Date dateNaissance, Role role) {
+	public User(String firstName, String lastName, Date dateNaissance) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dateNaissance = dateNaissance;
-		this.role = role;
 	}
 
 
-	public User(Long id, String firstName, String lastName, Date dateNaissance, Role role) {
+	public User(Long id, String firstName, String lastName, Date dateNaissance) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dateNaissance = dateNaissance;
-		this.role = role;
 	}
 
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dateNaissance="
-				+ dateNaissance + ", role=" + role + "]";
+				+ dateNaissance + "]";
 	}
 
 
@@ -82,12 +79,7 @@ public class User implements Serializable {
 	public void setDateNaissance(Date dateNaissance) {
 		this.dateNaissance = dateNaissance;
 	}
-	public Role getRole() {
-		return role;
-	}
-	public void setRole(Role role) {
-		this.role = role;
-	}
 	
+
 
 }

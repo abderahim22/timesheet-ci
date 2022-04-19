@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import tn.esprit.spring.entities.Role;
 import tn.esprit.spring.entities.User;
 import tn.esprit.spring.services.IUserService;
 
@@ -37,7 +36,7 @@ public class UserServiceImplTest {
 		public void testAddUser() throws ParseException {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date d = dateFormat.parse("2015-03-23");
-			User u = new User("Mayssa1", "Mayssa1", d, Role.INGENIEUR); 
+			User u = new User("Mayssa1", "Mayssa1", d); 
 			User userAdded = us.addUser(u); 
 			Assert.assertEquals(u.getLastName(), userAdded.getLastName());
 		}
@@ -46,7 +45,7 @@ public class UserServiceImplTest {
 		public void testModifyUser() throws ParseException   {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date d = dateFormat.parse("2015-03-23");
-			User u = new User(5L, "Mayssa122222222", "Mayssa", d, Role.INGENIEUR); 
+			User u = new User(5L, "Mayssa122222222", "Mayssa", d); 
 			User userUpdated  = us.updateUser(u); 
 			Assert.assertEquals(u.getLastName(), userUpdated.getLastName());
 		}
